@@ -21,17 +21,16 @@ req.send();
 // .catch((error)=>console.log(error));
 
 
+// fetch("https://api.blablagues.net/?rub=blagues")
+// .then((response) => {
+//     console.log(response)
+// })
+// .catch((error)=>console.log(error));
 
-fetch("https://api.blablagues.net/?rub=blagues")
-.then((response) => {
-    console.log(response)
-})
-.catch((error)=>console.log(error));
-
-fetch("data.txt")
-    .then((res) => {
-        console.log(res);
-    })
+// fetch("data.txt")
+//     .then((res) => {
+//         console.log(res);
+//     })
 //-----------pour les code de res  https://developer.mozilla.org/fr/docs/Web/HTTP/Status
 
 //    Codes de réponse HTTP
@@ -205,13 +204,12 @@ document.querySelector("form").addEventListener("submit",
 
     //**2
 // Promise
-
-fecth("mon lien").then((res)=> res)
+fectch("mon lien").then((res)=> res)
 
 // async/await
 async function fecthData() {
 
-    await fecth('monlien')
+    await fectch('monlien')
     // attend que le await soit exécuté avant de faire la suite
 
     executeFonction();
@@ -221,7 +219,7 @@ async function fecthData() {
 
 const  fecthData2 = async() => {
 
-    await fecth('monlien')
+    await fectch('monlien')
     // attend que le await soit exécuté avant de faire la suite
 
     executeFonction();
