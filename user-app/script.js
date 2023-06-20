@@ -4,7 +4,7 @@ const fetchUser1 = () =>{
 
 fetch("https://randomuser.me/api/?results=24")
 .then((res) => res.json())
-// .then((data) => console.log(data.results));
+// .then((data) => console.log(data.results))
  .then((data) =>( userData1=data.results));
    console.log(userData1);
 
@@ -12,19 +12,19 @@ fetch("https://randomuser.me/api/?results=24")
 fetchUser1();
 
 
-// La première ligne déclare une variable userData et initialise un tableau vide.
+// La première ligne déclare une variable userData1 et initialise un tableau vide.
 
-// La fonction fetchUser est définie comme une fonction fléchée qui sera appelée plus tard lors de l'exécution du code.
+// La fonction fetchUser1 est définie comme une fonction fléchée qui sera appelée plus tard lors de l'exécution du code.
 
 // La fonction fetchUser utilise l'API fetch pour appeler une API de génération aléatoire d'utilisateurs en ligne à l'aide d'un URL (https://randomuser.me/api/?results=24). Le paramètre results=24 est utilisé pour spécifier le nombre d'utilisateurs que nous souhaitons obtenir.
 
 // La réponse fetch renvoie une promesse, qui est résolue dans la première méthode then. La réponse est transformée en JSON en utilisant la méthode json() qui elle aussi, renvoie une promesse.
 
-// Dans la deuxième méthode then(), la réponse JSON est assignée à la variable userData.
+// Dans la deuxième méthode then(), la réponse JSON est assignée à la variable userData1.
 
-// Enfin, la fonction console.log affiche le tableau userData.
+// Enfin, la fonction console.log affiche le tableau userData1.
 
-// En dehors de la fonction fetchUser, nous appelons la fonction après sa déclaration en utilisant fetchUser1().
+// En dehors de la fonction fetchUser1, nous appelons la fonction après sa déclaration en utilisant fetchUser1().
 
 // Pour résumer, ce script utilise l'API fetch pour récupérer des données JSON sur les utilisateurs, les transforme de manière asynchrone en utilisant des promesses, et stocke les données dans une variable appelée userData1 pour une utilisation ultérieure.
 
@@ -38,7 +38,7 @@ const fetchUser = async() =>{
     await fetch("https://randomuser.me/api/?results=24")
     .then((res) => res.json())
      .then((data) => (userData = data.results));
-    };
+};
 
     const userDisplay = async () =>{
         await fetchUser();
@@ -60,9 +60,9 @@ const fetchUser = async() =>{
             let timestamp = Date.parse(date);
             return Math.ceil((todayTimestamp - timestamp) / 8.64e7);
         };
-// Math.ceil()-> ciel =valeur superieure
-// Math.floor()-> fleur  =valeur inferieure
-// Math.random()-> aleatoire
+                // Math.ceil()-> ciel =valeur superieure
+                // Math.floor()-> fleur  =valeur inferieure
+                // Math.random()-> aleatoire
 
         document.body.innerHTML = userData
         .map(

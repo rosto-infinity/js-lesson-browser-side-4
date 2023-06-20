@@ -24,13 +24,13 @@ req.send();
 
 fetch("https://api.blablagues.net/?rub=blagues")
 .then((response) => {
-    console.log(response)
+    // console.log(response)
 })
-.catch((error)=>console.log(error));
+// .catch((error)=>console.log(error));
 
 fetch("data.txt")
     .then((res) => {
-        console.log(res);
+        // console.log(res);
     })
 //-----------pour les code de res  https://developer.mozilla.org/fr/docs/Web/HTTP/Status
 
@@ -46,7 +46,9 @@ fetch("data.txt")
 // fetch("data.text").then((res) => res.text());
     // .then((data) => console.log(data));
 
-fetch("data.json").then((res) => res.text());
+
+
+// fetch("data.json").then((res) => res.text());
     // .then((data) => console.log(data));
 
     const myHeaders = new Headers();
@@ -158,7 +160,7 @@ document.querySelector("form").addEventListener("submit",
     () => {
         fetch("http://localhost:3000/posts", init2)
         // fetch("http://localhost:3000/posts/2", init2)
-            .then(() => console.log("data envoyée"));
+            // .then(() => console.log("data envoyée"));
     })
 
     //Ce script JavaScript utilise l'API Fetch pour récupérer et envoyer des données via un serveur de type RESTful. Voici une explication détaillée de chaque ligne :
@@ -206,12 +208,12 @@ document.querySelector("form").addEventListener("submit",
     //**2
 // Promise
 
-fecth("mon lien").then((res)=> res)
+// fetch("mon lien").then((res)=> res)
 
 // async/await
 async function fecthData() {
 
-    await fecth('monlien')
+    await fectch('monlien')
     // attend que le await soit exécuté avant de faire la suite
 
     executeFonction();
@@ -219,9 +221,9 @@ async function fecthData() {
 
 //**  Fonction fléché
 
-const  fecthData2 = async() => {
+const  fetchData2 = async() => {
 
-    await fecth('monlien')
+    await fetch('monlien')
     // attend que le await soit exécuté avant de faire la suite
 
     executeFonction();
@@ -232,3 +234,191 @@ const  fecthData2 = async() => {
 // Une fois que la requête est terminée, la fonction "executeFonction()" est appelée pour traiter les données récupérées ou effectuer une opération supplémentaire. L'utilisation de "await" permet d'attendre la fin de la requête avant d'exécuter cette fonction, car elle pourrait dépendre des données obtenues.
 
 // Il est important de noter que pour utiliser l'instruction "await", la fonction parente doit être marquée comme "asynchrone", ce qui signifie qu'elle est capable d'utiliser "await" pour attendre des opérations asynchrones telles que "fetch". En résumé, ce code permet d'attendre la récupération de données depuis un serveur distant avant de réaliser d'autres opérations qui pourraient dépendre de ces données.
+
+
+//----------------------------------
+// LE JESON
+//-----------------------
+
+// Méthode .json() => méthode qui s'auto-résoud en rayant le Body de la requête.
+fetch("data.json")
+.then((res) => res.json())
+.then((data) => {
+    // console.log(data);
+    // Stringify => convertir en JSON
+    let settings = JSON.stringify(data);
+    // console.log(settings);
+    //--Parse => transforme Json en object JS
+    // console.log(JSON.parse(settings));
+
+});
+
+
+
+//----------
+//**  Web API
+//-----------
+
+//Web API - Une API (Application Programming Interface) permet aux développeurs d'utiliser des fonctionnalités spécifiques dans leur code. Les Web API sont des interfaces qui permettent aux développeurs d'accéder à des fonctionnalités et des données du Web, telles que l'accès à des données de carte ou à des informations météorologiques. Les Web API sont souvent utilisées dans les applications Web, comme les navigateurs et les applications mobiles.
+
+//----Utilisation de Web API : Par exemple, l'API Google Maps permet aux développeurs de créer des cartes interactives et de les intégrer dans leurs applications Web. Les développeurs peuvent utiliser cette API pour ajouter des fonctionnalités comme les marqueurs de lieux personnalisés ou des informations de trafic en temps réel.
+
+
+
+
+
+//**  CLIENT STORAGE => stogage de 4ko----------
+//-----------
+//Client Storage - Le stockage client permet de stocker des informations sur le navigateur du client. Cela peut inclure des cookies, des données de session ou du stockage local. Le stockage client est utile pour stocker des données de configuration utilisateur, des informations de session et des préférences utilisateur.
+
+//---------Utilisation de Client Storage : Par exemple, les cookies permettent aux développeurs de stocker des informations sur les préférences utilisateur, telles que la langue préférée, ou d'authentifier les utilisateurs pour sécuriser les données.
+
+
+
+
+
+
+//**Local Storage => stogage de 10Mo----------------
+
+//Local Storage - Cette API permet aux développeurs de stocker des données sur l'appareil du client, dans le navigateur. Le stockage local est une méthode de stockage de données persistante qui permet de stocker des données ré-élaborées en interne sur le client pour une utilisation future. Les données stockées dans le stockage local peuvent être utilisées pour stocker des préférences utilisateur, des paramètres de l'application et des données utilisateur.
+
+//------Utilisation de Local Storage : Par exemple, les développeurs peuvent utiliser le stockage local pour stocker les préférences de l'utilisateur, telles que la taille de la police, le mode foncé / clair, ou les données des utilisateurs, comme des produits ajoutés au panier. Cela permet aux applications Web de stocker ces informations localement, plutôt que de les stocker sur un serveur distant, ce qui peut réduire les temps de chargement et améliorer l'expérience utilisateur.
+
+
+//localStorage est un objet de window
+localStorage.data ="je stock la data";
+
+//recuperer cette data
+//  console.log(localStorage.data);
+ document.body.textContent = localStorage.data;
+
+//suprimer un élèment storage
+//  localStorage.removeItem("data");
+
+const obj = {
+    name: "Eva",
+    age: 11
+}
+
+//--- il faut passer des chaines de caractères
+localStorage.user = obj;
+ console.log(obj);
+
+//--- convertir cet objet en string( en json) lorsqu'on insert
+localStorage.user = JSON.stringify(obj);
+
+
+//---recupere  le JSON et l'interpreté
+console.log(localStorage.user);
+//  transformer en object JS lors de la sorti
+console.log(JSON.parse(localStorage.user));
+
+
+//**  Session Storage 
+
+// Session Storage en JavaScript permet de stocker des données de manière temporaire et qui persistent uniquement pendant la durée de la session de navigation en cours dans le navigateur web. Cela signifie que ces données sont supprimées lors de la fermeture de la session de navigation ou fermeture du navigateur.
+//---------Pour accéder et stocker des données dans Session Storage, on peut utiliser deux méthodes :
+
+//setItem() : cette méthode permet de stocker une paire clé - valeur
+
+//getItem() : cette méthode permet de récupérer la valeur de la paire clé - valeur stockée précédemment.
+
+//Voici un exemple de code JavaScript pour utiliser Session Storage :
+
+// Stocker une donnée
+sessionStorage.setItem("nom", "rostodev");
+
+
+// Récupérer la donnée
+let nom = sessionStorage.getItem("nom");
+
+// document.body.innerHTML = sessionStorage.nom;
+// Afficher la donnée récupérée
+
+console.log(`Nom: ${nom}` );
+
+
+// Supprimer la donnée
+ sessionStorage.removeItem("nom");
+
+
+//Il est important de noter que Session Storage est limité par la quantité de stockage local disponible dans le navigateur, en général 5 à 10 Mo en fonction du navigateur utilisé. Il est également important de prendre en compte que les données stockées dans Session Storage sont visibles par l'ensemble des scripts sur la même page, ce qui peut représenter un risque pour la sécurité de l'application si des données sensibles sont stockées.
+
+
+// Enregistrer des données dans sessionStorage
+sessionStorage.setItem('clé', 'valeur');
+
+// Récupérer des données depuis sessionStorage
+let data = sessionStorage.getItem('clé');
+
+// Supprimer des données de sessionStorage
+ sessionStorage.removeItem('clé');
+
+// Supprimer toutes les données de sessionStorage
+ sessionStorage.clear();
+
+
+//**  Cookies
+// Les cookies sont de petits fichiers de données stockés sur l'ordinateur d'un utilisateur par le navigateur Web. Ils sont utilisés pour stocker de petites quantités d'informations, telles que les préférences de l'utilisateur, les données de connexion ou les informations de suivi.
+
+
+//En JavaScript, les cookies peuvent être manipulés avec le document.cookie propriété, qui permet de lire, d'écrire et de supprimer des cookies.
+
+
+//utilisation des cookies en JavaScript :
+
+document.cookie="username=Rostodev";
+
+//Bonne pratique
+document.cookie = "pseudo=Rosto;path=/; expires=Fri, 31 Dec 9999 23:59:59 GMT;";
+
+//---Stocker des préférences utilisateur ---:
+
+// Enregistrer un cookie contenant la langue préférée de l'utilisateur
+
+
+
+document.cookie = "lang=fr; expires=Fri, 31 Dec 2099 23:59:59 GMT; ";
+
+// Lire la valeur du cookie
+const  lang = document.cookie.replace(/(?:(?:^|.*;\s*)lang\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+// Supprimer le cookie
+document.cookie = "lang=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+
+//---Stocker des données de connexion :--
+// Enregistrer un cookie contenant les informations de connexion de l'utilisateur
+document.cookie = "session_id=abc123; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+
+// Vérifier si l'utilisateur est connecté en lisant le cookie
+if (document.cookie.indexOf("session_id=abc123") !== -1) {
+  // L'utilisateur est connecté
+} else {
+  // L'utilisateur n'est pas connecté
+}
+
+// Supprimer le cookie lors de la déconnexion
+document.cookie = "session_id=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+
+
+
+//---Suivi d'utilisateur :---
+// Enregistrer un cookie contenant un identifiant unique pour l'utilisateur
+document.cookie = "user_id=123; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+
+// Enregistrer un cookie contenant la date et l'heure de la visite de l'utilisateur
+document.cookie = "last_visit=" + new Date().toISOString() + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+
+// Lire la valeur du cookie d'identification utilisateur
+var user_id = document.cookie.replace(/(?:(?:^|.*;\s*)user_id\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+// Lire la valeur du cookie de dernière visite
+var last_visit = document.cookie.replace(/(?:(?:^|.*;\s*)last_visit\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+
+// Supprimer le cookie d'identification utilisateur lors de la suppression du compte utilisateur
+document.cookie = "user_id=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+
+// Supprimer le cookie de dernière visite après un certain temps d'inactivité
+document.cookie = "last_visit=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/";
+
+//Il est important de noter que les cookies peuvent présenter des risques pour la vie privée des utilisateurs s'ils sont utilisés de manière abusive. Il est donc recommandé de n'utiliser les cookies que pour stocker des informations qui sont utiles et nécessaires pour le fonctionnement d'un site Web.
